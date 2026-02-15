@@ -18,22 +18,22 @@ variable "vm_db_platform_id" {
   description = "Идентификатор платформы"
 }
 
-variable "vm_db_cores" {
-  type        = number
-  default     = 2
-  description = "vCPU ВМ"
-}
-variable "vm_db_memory" {
-  type        = number
-  default     = 2
-  description = "RAM ВМ"
-}
+# variable "vm_db_cores" {
+#   type        = number
+#   default     = 2
+#   description = "vCPU ВМ"
+# }
+# variable "vm_db_memory" {
+#   type        = number
+#   default     = 2
+#   description = "RAM ВМ"
+# }
 
-variable "vm_db_core_frac" {
-  type        = number
-  default     = 20
-  description = "Гарантированная доля vCPU ВМ"
-}
+# variable "vm_db_core_frac" {
+#   type        = number
+#   default     = 20
+#   description = "Гарантированная доля vCPU ВМ"
+# }
 
 variable "vm_db_preemptible" {
   type        = bool
@@ -47,8 +47,8 @@ variable "vm_db_network_nat" {
   description = "Использовать NAT"
 }
 
-variable "vm_db_serial_port_enable" {
-  type        = number
-  default     = 1
-  description = "Активировать серийный порт"
-}
+# variable "vm_db_serial_port_enable" {
+#   type        = number
+#   default     = 1
+#   description = "Активировать серийный порт"
+# }

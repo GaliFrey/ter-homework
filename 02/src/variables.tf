@@ -64,11 +64,11 @@ variable "vpc_db_default_cidr" {
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5yIIHkmPmdqtgG0rNRrnLZ2L1ebC9pmu66PvcBdpP5 heimdall@Heimdall"
-  description = "ssh-keygen -t ed25519"
-}
+# variable "vms_ssh_root_key" {
+#   type        = string
+#   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5yIIHkmPmdqtgG0rNRrnLZ2L1ebC9pmu66PvcBdpP5 heimdall@Heimdall"
+#   description = "ssh-keygen -t ed25519"
+# }
 
 ### vm_web
 
@@ -84,22 +84,22 @@ variable "vm_web_platform_id" {
   description = "Идентификатор платформы"
 }
 
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description = "vCPU ВМ"
-}
-variable "vm_web_memory" {
-  type        = number
-  default     = 2
-  description = "RAM ВМ"
-}
+# variable "vm_web_cores" {
+#   type        = number
+#   default     = 2
+#   description = "vCPU ВМ"
+# }
+# variable "vm_web_memory" {
+#   type        = number
+#   default     = 2
+#   description = "RAM ВМ"
+# }
 
-variable "vm_web_core_frac" {
-  type        = number
-  default     = 20
-  description = "Гарантированная доля vCPU ВМ"
-}
+# variable "vm_web_core_frac" {
+#   type        = number
+#   default     = 20
+#   description = "Гарантированная доля vCPU ВМ"
+# }
 
 variable "vm_web_preemptible" {
   type        = bool
@@ -113,8 +113,34 @@ variable "vm_web_network_nat" {
   description = "Использовать NAT"
 }
 
-variable "vm_web_serial_port_enable" {
-  type        = number
-  default     = 1
-  description = "Активировать серийный порт"
+# variable "vm_web_serial_port_enable" {
+#   type        = number
+#   default     = 1
+#   description = "Активировать серийный порт"
+# }
+
+variable "vms_resources" {
+  type = map(map(number))
+  description = "Параметры ВМ"
+  default = {
+    vm_web_resources = {
+      cores = 2
+      memory = 2
+      core_fraction = 20
+    }
+    vm_db_resources = {
+      cores = 2
+      memory = 2
+      core_fraction = 20
+    }
+  }
+}
+
+variable "metadata" {
+  description = "Параметры metadata"
+    type = map(string)
+    default = {
+      serial-port-enable = "1"
+      ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5yIIHkmPmdqtgG0rNRrnLZ2L1ebC9pmu66PvcBdpP5 heimdall@Heimdall"
+    }
 }
