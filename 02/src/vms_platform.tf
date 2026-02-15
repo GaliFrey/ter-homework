@@ -12,12 +12,6 @@ variable "vm_db_image_family" {
   description = "Идентификатор образа"
 }
 
-variable "vm_db_name" {
-  type        = string
-  default     = "netology-develop-platform-db"
-  description = "Имя ВМ"
-}
-
 variable "vm_db_platform_id" {
   type        = string
   default     = "standard-v3"

@@ -78,12 +78,6 @@ variable "vm_web_image_family" {
   description = "Идентификатор образа"
 }
 
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "Имя ВМ"
-}
-
 variable "vm_web_platform_id" {
   type        = string
   default     = "standard-v3"
