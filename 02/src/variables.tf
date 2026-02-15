@@ -91,36 +91,36 @@ variable "vm_web_platform_id" {
 }
 
 variable "vm_web_cores" {
-  type = number
-  default = 2
+  type        = number
+  default     = 2
   description = "vCPU ВМ"
 }
 variable "vm_web_memory" {
-  type = number
-  default = 2
+  type        = number
+  default     = 2
   description = "RAM ВМ"
 }
 
 variable "vm_web_core_frac" {
-  type = number
-  default = 20
+  type        = number
+  default     = 20
   description = "Гарантированная доля vCPU ВМ"
 }
 
 variable "vm_web_preemptible" {
-  type = bool
-  default = true
+  type        = bool
+  default     = true
   description = "Прерываемая ВМ"
 }
 
 variable "vm_web_network_nat" {
-  type = bool
-  default = true
+  type        = bool
+  default     = true
   description = "Использовать NAT"
 }
 
 variable "vm_web_serial_port_enable" {
-  type = number
-  default = 1
+  type        = number
+  default     = 1
   description = "Активировать серийный порт"
 }
