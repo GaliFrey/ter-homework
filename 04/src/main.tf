@@ -1,11 +1,8 @@
-resource "yandex_vpc_network" "develop" {
-  name = var.vpc_name
-}
-resource "yandex_vpc_subnet" "develop" {
-  name           = var.vpc_name
-  zone           = var.default_zone
-  network_id     = yandex_vpc_network.develop.id
-  v4_cidr_blocks = var.default_cidr
+module "vpc_dev" {
+  source   = "./vpc"
+  env_name = var.vpc_name
+  zone     = var.default_zone
+  cidr     = var.default_cidr[0]
 }
 
 data "template_file" "cloud_init_marketing" {
@@ -27,9 +24,9 @@ data "template_file" "cloud_init_analytics" {
 module "marketing_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "develop" 
-  network_id     = yandex_vpc_network.develop.id
+  network_id     = module.vpc_dev.network_id
   subnet_zones   = [var.default_zone]
-  subnet_ids     = [yandex_vpc_subnet.develop.id]
+  subnet_ids     = [module.vpc_dev.subnet_id]
   instance_name  = "marketing"
   instance_count = 1
   image_family   = var.vm_image_family
@@ -48,9 +45,9 @@ module "marketing_vm" {
 module "analytics_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "develop" 
-  network_id     = yandex_vpc_network.develop.id
+  network_id     = module.vpc_dev.network_id
   subnet_zones   = [var.default_zone]
-  subnet_ids     = [yandex_vpc_subnet.develop.id]
+  subnet_ids     = [module.vpc_dev.subnet_id]
   instance_name  = "analytics"
   instance_count = 1
   image_family   = var.vm_image_family
