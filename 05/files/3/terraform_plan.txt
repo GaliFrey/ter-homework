@@ -1,0 +1,18 @@
+heimdall@Heimdall:/mnt/d/Developer/Netology/ter-homeworks/04/src$ terraform plan
+data.template_file.cloud_init_marketing: Reading...
+data.template_file.cloud_init_analytics: Reading...
+data.template_file.cloud_init_marketing: Read complete after 0s [id=a066bbd391e8d6dea71f0e49ce75368b3d0ae9df939fcd28d71973801d523242]
+data.template_file.cloud_init_analytics: Read complete after 0s [id=a066bbd391e8d6dea71f0e49ce75368b3d0ae9df939fcd28d71973801d523242]
+module.vpc_dev.yandex_vpc_network.network: Refreshing state... [id=enpldkg3lnpabc4u7uc5]
+module.marketing_vm.data.yandex_compute_image.my_image: Reading...
+module.analytics_vm.data.yandex_compute_image.my_image: Reading...
+module.marketing_vm.data.yandex_compute_image.my_image: Read complete after 0s [id=fd8ccfejmpaipf677j5c]
+module.analytics_vm.data.yandex_compute_image.my_image: Read complete after 0s [id=fd8ccfejmpaipf677j5c]
+module.vpc_dev.yandex_vpc_subnet.subnet: Refreshing state... [id=e9b16vrk5fg01mtviuq3]
+module.marketing_vm.yandex_compute_instance.vm[0]: Refreshing state... [id=fhmguso9skg4e4pbjqv8]
+module.analytics_vm.yandex_compute_instance.vm[0]: Refreshing state... [id=fhmv4apch5gvduo5j4nb]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are
+needed.

@@ -1,0 +1,88 @@
+heimdall@Heimdall:/mnt/d/Developer/Netology/ter-homeworks/04/src$ tflint --recursive
+5 issue(s) found:
+
+Warning: Missing version constraint for provider "template" in `required_providers` (terraform_required_providers)
+
+  on main.tf line 16:
+  16: data "template_file" "cloud_init_analytics" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 25:
+  25:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_module_pinned_source.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 46:
+  46:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_module_pinned_source.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on providers.tf line 3:
+   3:     yandex = {
+   4:       source = "yandex-cloud/yandex"
+   5:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on vpc/main.tf line 3:
+   3:     yandex = {
+   4:       source = "yandex-cloud/yandex"
+   5:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+heimdall@Heimdall:/mnt/d/Developer/Netology/ter-homeworks/04/demonstration1$ tflint --recursive
+6 issue(s) found:
+
+Warning: Missing version constraint for provider "random" in `required_providers` (terraform_required_providers)
+
+  on passwords/main.tf line 8:
+   8: resource "random_password" "input_vms" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on vms/main.tf line 23:
+  23:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_module_pinned_source.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on vms/main.tf line 46:
+  46:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_module_pinned_source.md
+
+Warning: Missing version constraint for provider "template" in `required_providers` (terraform_required_providers)
+
+  on vms/main.tf line 64:
+  64: data "template_file" "cloudinit" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on vms/providers.tf line 3:
+   3:     yandex = {
+   4:       source = "yandex-cloud/yandex"
+   5:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: [Fixable] variable "public_key" is declared but not used (terraform_unused_declarations)
+
+  on vms/variables.tf line 3:
+   3: variable "public_key" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_unused_declarations.md

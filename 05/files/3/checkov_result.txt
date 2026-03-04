@@ -1,0 +1,34 @@
+
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.500 
+Update available 3.2.500 -> 3.2.506
+Run pip3 install -U checkov to update 
+
+
+terraform scan results:
+
+Passed checks: 4, Failed checks: 0, Skipped checks: 0
+
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	PASSED for resource: marketing_vm
+	File: /main.tf:24-43
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	PASSED for resource: marketing_vm
+	File: /main.tf:24-43
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	PASSED for resource: analytics_vm
+	File: /main.tf:45-64
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	PASSED for resource: analytics_vm
+	File: /main.tf:45-64
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+
