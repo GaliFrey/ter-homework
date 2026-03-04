@@ -1,0 +1,120 @@
+
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.500 
+Update available 3.2.500 -> 3.2.506
+Run pip3 install -U checkov to update 
+
+
+terraform scan results:
+
+Passed checks: 0, Failed checks: 4, Skipped checks: 0
+
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	FAILED for resource: marketing_vm
+	File: /main.tf:24-43
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+
+		24 | module "marketing_vm" {
+		25 |   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+		26 |   env_name       = "develop" 
+		27 |   network_id     = module.vpc_dev.network_id
+		28 |   subnet_zones   = [var.default_zone]
+		29 |   subnet_ids     = [module.vpc_dev.subnet_id]
+		30 |   instance_name  = "marketing"
+		31 |   instance_count = 1
+		32 |   image_family   = var.vm_image_family
+		33 |   public_ip      = true
+		34 | 
+		35 |   labels = { 
+		36 |     project = "marketing"
+		37 |   }
+		38 | 
+		39 |   metadata = {
+		40 |     user-data          = data.template_file.cloud_init_marketing.rendered
+		41 |     serial-port-enable = 1
+		42 |   }
+		43 | }
+
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	FAILED for resource: marketing_vm
+	File: /main.tf:24-43
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+
+		24 | module "marketing_vm" {
+		25 |   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+		26 |   env_name       = "develop" 
+		27 |   network_id     = module.vpc_dev.network_id
+		28 |   subnet_zones   = [var.default_zone]
+		29 |   subnet_ids     = [module.vpc_dev.subnet_id]
+		30 |   instance_name  = "marketing"
+		31 |   instance_count = 1
+		32 |   image_family   = var.vm_image_family
+		33 |   public_ip      = true
+		34 | 
+		35 |   labels = { 
+		36 |     project = "marketing"
+		37 |   }
+		38 | 
+		39 |   metadata = {
+		40 |     user-data          = data.template_file.cloud_init_marketing.rendered
+		41 |     serial-port-enable = 1
+		42 |   }
+		43 | }
+
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	FAILED for resource: analytics_vm
+	File: /main.tf:45-64
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
+
+		45 | module "analytics_vm" {
+		46 |   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+		47 |   env_name       = "develop" 
+		48 |   network_id     = module.vpc_dev.network_id
+		49 |   subnet_zones   = [var.default_zone]
+		50 |   subnet_ids     = [module.vpc_dev.subnet_id]
+		51 |   instance_name  = "analytics"
+		52 |   instance_count = 1
+		53 |   image_family   = var.vm_image_family
+		54 |   public_ip      = true
+		55 | 
+		56 |   labels = { 
+		57 |     project = "analytics"
+		58 |   }
+		59 | 
+		60 |   metadata = {
+		61 |     user-data          = data.template_file.cloud_init_analytics.rendered
+		62 |     serial-port-enable = 1
+		63 |   }
+		64 | }
+Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number"
+	FAILED for resource: analytics_vm
+	File: /main.tf:45-64
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag
+
+		45 | module "analytics_vm" {
+		46 |   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+		47 |   env_name       = "develop" 
+		48 |   network_id     = module.vpc_dev.network_id
+		49 |   subnet_zones   = [var.default_zone]
+		50 |   subnet_ids     = [module.vpc_dev.subnet_id]
+		51 |   instance_name  = "analytics"
+		52 |   instance_count = 1
+		53 |   image_family   = var.vm_image_family
+		54 |   public_ip      = true
+		55 | 
+		56 |   labels = { 
+		57 |     project = "analytics"
+		58 |   }
+		59 | 
+		60 |   metadata = {
+		61 |     user-data          = data.template_file.cloud_init_analytics.rendered
+		62 |     serial-port-enable = 1
+		63 |   }
+		64 | }
+

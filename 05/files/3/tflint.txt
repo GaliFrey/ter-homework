@@ -1,0 +1,41 @@
+5 issue(s) found:
+
+Warning: Missing version constraint for provider "template" in `required_providers` (terraform_required_providers)
+
+  on main.tf line 16:
+  16: data "template_file" "cloud_init_analytics" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 25:
+  25:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_module_pinned_source.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 46:
+  46:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_module_pinned_source.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on providers.tf line 3:
+   3:     yandex = {
+   4:       source = "yandex-cloud/yandex"
+   5:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on vpc/main.tf line 3:
+   3:     yandex = {
+   4:       source = "yandex-cloud/yandex"
+   5:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.14.1/docs/rules/terraform_required_providers.md
+
